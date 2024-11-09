@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'pages',
     'crispy_forms',
     'crispy_bootstrap4',
+    'articles.apps.ArticlesConfig',
 
 ]
 
