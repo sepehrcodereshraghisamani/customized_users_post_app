@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Article List
+{% endblock %}
+
+{% block content %}
+	<h1>Article List</h1>
+    <hr>
+    <div class="list-group">
+        <ul class="list-group">
+            {% for object in object_list %}
+            	<li class="list-group-item">{{ object }} <br>
+                <a class="dj_map_wrapper">edit</a>  |  <a class="dj_map_delete">delete</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+{% endblock %}
+
