@@ -10,8 +10,9 @@
     <div class="list-group">
         <ul class="list-group">
             {% for object in object_list %}
-            	<li class="list-group-item">{{ object }} <br>
-                <a class="dj_map_wrapper">edit</a>  |  <a class="dj_map_delete">delete</a>
+            	<li class="list-group-item"> <a href="{% url 'article_detail' object.pk %}">{{ object }} </a> <br>
+                <a class="dj_map_wrapper" href="{% url 'article_edit' object.pk %}">edit</a>  |  
+                    <a class="dj_map_delete" href="{% url 'article_delete' object.pk %}">delete</a>
                 </li>
             {% endfor %}
         </ul>
