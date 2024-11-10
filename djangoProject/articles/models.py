@@ -15,7 +15,7 @@ class Article(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('articles:detail', args=[str(self.id)])
+        return reverse('articles:detail', args=[str(self.pk)])
 
 
 
