@@ -18,5 +18,13 @@ class Article(models.Model):
         return reverse('articles:detail', args=[str(self.pk)])
 
 
+class Comment(models.Model):
+    article = models.ForeignKey(Article,related_name='comments',on_delete=models.CASCADE)
+    writer = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    comment = models.TextField()
+    def __str__(self):
+        return str(self.writer) + ' - ' + str(self.pk)
 
+    def get_absolute_url(self):
+        return reverse('article_list')
 

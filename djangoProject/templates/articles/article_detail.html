@@ -12,7 +12,14 @@
                     <div class="card-header">
                         <h3>{{object.title}}</h3>
                         <h3>{{ object.body }}</h3>
-                        <h3>Created at {{object.date}} by {{ object.author }}</h3> <br>
+                        <h3>Created at {{object.date}} by {{ object.author }}</h3> <hr>
+                        <ul>
+                            {% for comment in object.comments.all %}
+                        	    <li> {{ comment.writer }} <b>:</b> {{ comment.comment }}     </li> 
+                            {% endfor %}
+                        
+                        </ul>
+                        <br>
                         <a class="dj_map_wrapper" href="{% url 'article_edit' object.pk %}">Edit</a> | 
                         <a class="dj_map_delete" href="{% url 'article_delete' object.pk %}">Delete</a>
                     </div>
