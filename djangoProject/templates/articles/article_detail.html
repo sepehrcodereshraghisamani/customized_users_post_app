@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
 {% block title %}
 	{{object.title}}
 {% endblock %}
@@ -19,6 +20,13 @@
                             {% endfor %}
                         
                         </ul>
+                        <form action="" method="POST">
+                            <div class="form-group">
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                         </form>
                         <br>
                         <a class="dj_map_wrapper" href="{% url 'article_edit' object.pk %}">Edit</a> | 
                         <a class="dj_map_delete" href="{% url 'article_delete' object.pk %}">Delete</a>
